@@ -9,13 +9,15 @@ package sp4_hagelauer_chauvet;
  * @author ylanc
  */
 public class Jeton {
-    String couleur;
+    String Couleur;
     
     Jeton(String RouJ){
-        couleur = RouJ;
+        Couleur = RouJ;
+        //attribution d'une couleur aux jetons
     }
     String lireCouleur(){
-        return couleur;
+        return Couleur;
+        //Lit la couleur et la renvoie en quelque chose de réutilisable dans d'autres classes
     }
     
 }
