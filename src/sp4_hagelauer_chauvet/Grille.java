@@ -21,8 +21,8 @@ public class Grille {
     }
      boolean ajouterJetonDansColonne(Jeton J,int colonne){
          for (int i=0; i<6;i++){
-             if (cellule[i][colonne]==null){
-                 cellule[i][colonne].JetonCourant= J;
+             if (cellule[i][colonne-1].JetonCourant==null){
+                 cellule[i][colonne-1].JetonCourant= J;
                  return true;
              }
          }
@@ -56,16 +56,17 @@ public class Grille {
      public static final String ANSI_RESET = "\u001B[0m";
      void afficherGrilleSurConsole(){
          for (int i=0; i<6;i++){
+             System.out.print("\n");
             for (int j=0;j<7;j++){
                 String couleur= cellule[i][j].lireCouleurDuJeton();
                 if (couleur=="Rouge"){
-                    System.out.println(ANSI_RED + "\u2022"+ ANSI_RESET);
+                    System.out.print(ANSI_RED + "\u2022"+ ANSI_RESET);
                 }
                 if (couleur=="Jaune"){
-                    System.out.println(ANSI_YELLOW+"\u2022"+ANSI_RESET);
+                    System.out.print(ANSI_YELLOW+"\u2022"+ANSI_RESET);
                 }
                 if (couleur=="vide"){
-                    System.out.println(ANSI_WHITE+"\u2022"+ANSI_RESET);
+                    System.out.print(ANSI_WHITE+"\u2022"+ANSI_RESET);
                 }
                 
             }

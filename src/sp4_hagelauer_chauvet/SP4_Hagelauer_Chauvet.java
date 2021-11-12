@@ -14,7 +14,10 @@ public class SP4_Hagelauer_Chauvet {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Grille grilletest = new Grille();
+        Jeton jet = new Jeton("Rouge");
+        grilletest.ajouterJetonDansColonne(jet, 3);
+        grilletest.afficherGrilleSurConsole();
     }
     
 }

@@ -10,8 +10,8 @@ package sp4_hagelauer_chauvet;
  */
 public class Partie {
    Joueur ListeJoueurs[]= new Joueur[2];//création d'un objet Joueur
-   Joueur joueurCourant;//création d'un objet Joueur
-   Grille grilleJeu= new Grille();//création d'un objet Grille
+   Joueur JoueurCourant;//création d'un objet Joueur
+   Grille grilleJeu;//création d'un objet Grille
    
    void attribuerCouleursAuxJoueurs(){ //Associe une couleur aux 2 joueurs stocké dans Couleurs
        double a= Math.random();//création d'une variable aléatoire entre 0 et 1
@@ -25,6 +25,20 @@ public class Partie {
        }
    }
    void initialiserPartie(){
-       //grilleJeu.viderGrille();
+       grilleJeu= new Grille();
+       grilleJeu.vidergrille();
+       String couleur= ListeJoueurs[0].Couleur;
+       Jeton jeton= new Jeton(couleur);
+       for (int i=0;i<22;i++){
+           ListeJoueurs[0].ajouterJeton(jeton);
+       }
+       String couleur2= ListeJoueurs[1].Couleur;
+       Jeton jeton2= new Jeton(couleur2);
+       for (int i=0;i<22;i++){
+           ListeJoueurs[0].ajouterJeton(jeton2);
+       }
+   }
+   void debuterPartie(){
+       
    }
 }
