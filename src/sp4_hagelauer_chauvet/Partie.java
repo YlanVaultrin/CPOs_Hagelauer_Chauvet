@@ -39,6 +39,10 @@ public class Partie {
        }
    }
    void debuterPartie(){
-       
-   }
+       if (ListeJoueurs[1].Couleur=="Rouge"){
+           JoueurCourant= ListeJoueurs[1];
+       }else{
+           JoueurCourant= ListeJoueurs[2];
+       }
+   }//vérifie grille + demande colonne + vérifie tt en faite t dans la merde whallah c plus mon probleme c le tien t'avais pas qu'a bédave
 }
