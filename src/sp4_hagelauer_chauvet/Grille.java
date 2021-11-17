@@ -23,7 +23,7 @@ public class Grille {
          for (int i=0; i<6;i++){
              if (cellule[i][colonne-1].JetonCourant==null){
                  cellule[i][colonne-1].JetonCourant= J;
-                 return true;
+                 return true; //ajoute un jeton que si l'emplacement est vide
              }
          }
          return false;  
@@ -40,7 +40,7 @@ public class Grille {
          if (a==42){
              return true;
          }else{
-             return false;
+             return false; //nous indique si la grille est pleine est donc l'égalité 
          }
      }
      void vidergrille(){
@@ -53,7 +53,7 @@ public class Grille {
      public static final String ANSI_YELLOW = "\u001B[33m";
      public static final String ANSI_RED = "\u001B[31m";
      public static final String ANSI_WHITE = "\u001B[37m";
-     public static final String ANSI_RESET = "\u001B[0m";
+     public static final String ANSI_RESET = "\u001B[0m"; //importation des couleurs
      void afficherGrilleSurConsole(){
          for (int i=0; i<6;i++){
              System.out.print("\n");
@@ -68,7 +68,7 @@ public class Grille {
                 if (couleur=="vide"){
                     System.out.print(ANSI_WHITE+"\u2022"+ANSI_RESET);
                 }
-                
+                //attribution des couleurs aux éléments
             }
          }
      }
@@ -76,16 +76,16 @@ public class Grille {
          if (cellule[i][j]!=null){
              return true;
          }
-         return false;
+         return false; //nous indique si la cellule est occupé
      }
      String lireCouleurDuJeton(int i, int j){
          String couleur= cellule[i][j].JetonCourant.Couleur;
-         return couleur;
+         return couleur; //nous indique la couleur du jeton
      }
      boolean etreGagnantePourJoueur(Joueur joueur){
          String a = joueur.Couleur;
          for (int i=0; i<6;i++){
-            for (int j=0;j<7;j++){
+            for (int j=0;j<7;j++){ //on lit les couleurs de chaque jeton de toutes les cellules
                 String b = cellule[i][j].lireCouleurDuJeton();
                 if (a==b){
                     //on vérifie une ligne gagnante
@@ -96,7 +96,7 @@ public class Grille {
                                 if (b==jetons2 && b==jetons3 && b==jetons4){
                                     return true;
                                 }
-                            }
+                            }//on vérifie une colonne gagnante
                             for (i=0; i<3;i++){
                                 String jetons2= cellule[i+1][j].lireCouleurDuJeton();
                                 String jetons3= cellule[i+2][j].lireCouleurDuJeton();
@@ -106,7 +106,7 @@ public class Grille {
                                 }
                             }
                             for (i=0; i<3;i++){
-                                for (j=0;j<4;j++){
+                                for (j=0;j<4;j++){ //on vérifie une diagonale gagnante
                                     String jetons2= cellule[i+1][j+1].lireCouleurDuJeton();
                                     String jetons3= cellule[i+2][j+2].lireCouleurDuJeton();
                                     String jetons4= cellule[i+3][j+3].lireCouleurDuJeton();
@@ -116,7 +116,7 @@ public class Grille {
                                 }
                                 }
                             for (i=0; i>2;i++){
-                                for (j=0;j<4;j++){
+                                for (j=0;j<4;j++){ //on vérifie une diagonale en partant du haut gagnante
                                     String jetons2= cellule[i-1][j+1].lireCouleurDuJeton();
                                     String jetons3= cellule[i-2][j+2].lireCouleurDuJeton();
                                     String jetons4= cellule[i-3][j+3].lireCouleurDuJeton();
@@ -128,7 +128,7 @@ public class Grille {
                 }
             
             }
-         }
+         } //personne ne gagne encore
          return false;
      }
      boolean colonneRemplie(int colonne){
@@ -139,7 +139,7 @@ public class Grille {
              }
              if (a==6){
                  return true;
-             }
+             } //vérifie si une colonne est remplie
          }
          return false;
      }

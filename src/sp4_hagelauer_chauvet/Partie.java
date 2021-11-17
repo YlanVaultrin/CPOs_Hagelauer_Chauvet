@@ -44,5 +44,8 @@ public class Partie {
        }else{
            JoueurCourant= ListeJoueurs[2];
        }
-   }//vérifie grille + demande colonne + vérifie tt en faite t dans la merde whallah c plus mon probleme c le tien t'avais pas qu'a bédave
+       while (grilleJeu.etreremplie()==false){
+           
+       }
+   }//vérifie grille + demande colonne
 }
