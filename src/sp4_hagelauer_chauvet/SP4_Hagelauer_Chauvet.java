@@ -15,13 +15,19 @@ public class SP4_Hagelauer_Chauvet {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-                System.out.println("Veuillez démarrer la partie!");
-                Joueur joueur1= new Joueur("nom");
-                //nextLine
-                Joueur joueur2= new Joueur("nom");
+
+        System.out.println("Veuillez démarrer la partie!");
+                System.out.println("Joueur 1 comment vous appelez-vous ?");
+                Scanner sc= new Scanner(System.in);
+                String nom1= sc.nextLine();
+                String nom2= sc.nextLine();
+                Joueur joueur1= new Joueur(nom1);
+                System.out.println("Le Joueur 1 est: "+nom1);
+                Joueur joueur2= new Joueur(nom2);
+                System.out.println("Le Joueur 2 est: "+nom2);
                 Partie partie= new Partie(joueur1,joueur2);
-                partie.initialiserPartie();
                 partie.debuterPartie();
+                System.out.println();
     }
     
 }

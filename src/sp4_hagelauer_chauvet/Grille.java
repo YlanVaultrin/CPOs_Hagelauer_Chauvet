@@ -31,8 +31,8 @@ public class Grille {
      boolean etreremplie(){
          int a=0;
          for (int i=0; i<6;i++){
-             for (int j=0; j<7;i++){
-                 if (cellule[i][j]!=null){
+             for (int j=0; j<7;j++){
+                 if (cellule[i][j].JetonCourant!=null){
                      a=a+1;
                  }
              }
@@ -46,7 +46,7 @@ public class Grille {
      void vidergrille(){
          for (int i=0; i<6;i++){
             for (int j=0;j<7;j++){
-                cellule[i][j]=null;
+                cellule[i][j].JetonCourant=null;
             }
          }
      }
@@ -55,7 +55,7 @@ public class Grille {
      public static final String ANSI_WHITE = "\u001B[37m";
      public static final String ANSI_RESET = "\u001B[0m"; //importation des couleurs
      void afficherGrilleSurConsole(){
-         for (int i=0; i<6;i++){
+         for (int i=5; i>=0;i--){
              System.out.print("\n");
             for (int j=0;j<7;j++){
                 String couleur= cellule[i][j].lireCouleurDuJeton();
@@ -84,9 +84,10 @@ public class Grille {
      }
      boolean etreGagnantePourJoueur(Joueur joueur){
          String a = joueur.Couleur;
+         String b;
          for (int i=0; i<6;i++){
             for (int j=0;j<7;j++){ //on lit les couleurs de chaque jeton de toutes les cellules
-                String b = cellule[i][j].lireCouleurDuJeton();
+                b = cellule[i][j].lireCouleurDuJeton();
                 if (a==b){
                     //on vérifie une ligne gagnante
                             for (j=0;j<4;j++){
@@ -115,7 +116,7 @@ public class Grille {
                                     }
                                 }
                                 }
-                            for (i=0; i>2;i++){
+                            for (i=3; i<5;i++){
                                 for (j=0;j<4;j++){ //on vérifie une diagonale en partant du haut gagnante
                                     String jetons2= cellule[i-1][j+1].lireCouleurDuJeton();
                                     String jetons3= cellule[i-2][j+2].lireCouleurDuJeton();
@@ -132,15 +133,9 @@ public class Grille {
          return false;
      }
      boolean colonneRemplie(int colonne){
-         for (int i=0; i<6;i++){
-             int a=0;
-             if (cellule[i][colonne]!=null){
-                 a=a+1;
-             }
-             if (a==6){
+             if (cellule[5][colonne-1].lireCouleurDuJeton()!="vide"){
                  return true;
-             } //vérifie si une colonne est remplie
-         }
-         return false;
+             }
+             return false;
      }
 }

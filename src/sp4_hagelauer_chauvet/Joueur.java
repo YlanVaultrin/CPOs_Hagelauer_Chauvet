@@ -15,14 +15,20 @@ public class Joueur {
     int nombreJetonsRestant;
     Joueur(String nom){
         Nom= nom;
+        nombreJetonsRestant=0;
         //Associe le nom du joueur à la variable Nom
     }
     void affecterCouleur(String RouJ){
         Couleur= RouJ;
         //Affecte la couleur du jeton à la variable Couleur
     }
-    void ajouterJeton(Jeton jeton){
-        ListeJetons[nombreJetonsRestant+1]= jeton;
+    boolean ajouterJeton(Jeton jeton){
+        if (nombreJetonsRestant<21){
+            ListeJetons[nombreJetonsRestant]= jeton;
+            nombreJetonsRestant= nombreJetonsRestant+1;
+            return true;
         //affecte à la variable ListeJetons le nombre de jetons restant
+        }
+        return false;
     }
 }
