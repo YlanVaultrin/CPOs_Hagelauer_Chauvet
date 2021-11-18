@@ -72,66 +72,54 @@ public class Grille {
             }
          }
      }
-     boolean celluleOccupee(int i,int j){
-         if (cellule[i][j]!=null){
-             return true;
-         }
-         return false; //nous indique si la cellule est occupé
-     }
-     String lireCouleurDuJeton(int i, int j){
-         String couleur= cellule[i][j].JetonCourant.Couleur;
-         return couleur; //nous indique la couleur du jeton
-     }
-     boolean etreGagnantePourJoueur(Joueur joueur){
-         String a = joueur.Couleur;
-         String b;
-         for (int i=0; i<6;i++){
-            for (int j=0;j<7;j++){ //on lit les couleurs de chaque jeton de toutes les cellules
-                b = cellule[i][j].lireCouleurDuJeton();
-                if (a==b){
-                    //on vérifie une ligne gagnante
-                            for (j=0;j<4;j++){
-                                String jetons2= cellule[i][j+1].lireCouleurDuJeton();
-                                String jetons3= cellule[i][j+2].lireCouleurDuJeton();
-                                String jetons4= cellule[i][j+3].lireCouleurDuJeton();
-                                if (b==jetons2 && b==jetons3 && b==jetons4){
-                                    return true;
-                                }
-                            }//on vérifie une colonne gagnante
-                            for (i=0; i<3;i++){
-                                String jetons2= cellule[i+1][j].lireCouleurDuJeton();
-                                String jetons3= cellule[i+2][j].lireCouleurDuJeton();
-                                String jetons4= cellule[i+3][j].lireCouleurDuJeton();
-                                if (b==jetons2 && b==jetons3 && b==jetons4){
-                                    return true;
-                                }
-                            }
-                            for (i=0; i<3;i++){
-                                for (j=0;j<4;j++){ //on vérifie une diagonale gagnante
-                                    String jetons2= cellule[i+1][j+1].lireCouleurDuJeton();
-                                    String jetons3= cellule[i+2][j+2].lireCouleurDuJeton();
-                                    String jetons4= cellule[i+3][j+3].lireCouleurDuJeton();
-                                    if (b==jetons2 && b==jetons3 && b==jetons4){
-                                        return true;
-                                    }
-                                }
-                                }
-                            for (i=3; i<5;i++){
-                                for (j=0;j<4;j++){ //on vérifie une diagonale en partant du haut gagnante
-                                    String jetons2= cellule[i-1][j+1].lireCouleurDuJeton();
-                                    String jetons3= cellule[i-2][j+2].lireCouleurDuJeton();
-                                    String jetons4= cellule[i-3][j+3].lireCouleurDuJeton();
-                                    if (b==jetons2 && b==jetons3 && b==jetons4){
-                                        return true;
-                                    }
-                                }
-                            }
-                }
-            
-            }
-         } //personne ne gagne encore
-         return false;
-     }
+public boolean etreGagnantePourJoueur(Joueur joueur){
+       String couleur = joueur.Couleur;
+       for (int i=0; i<6; i++){
+           for (int j=0; j<4; j++){ //on vérifie une ligne gagnante
+               String jeton1 = cellule[i][j].lireCouleurDuJeton();
+               String jeton2 = cellule[i][j+1].lireCouleurDuJeton();
+               String jeton3 = cellule[i][j+2].lireCouleurDuJeton();
+               String jeton4 = cellule[i][j+3].lireCouleurDuJeton();
+               if (jeton1==couleur && jeton2==couleur && jeton3==couleur && jeton4==couleur){
+                   return true;
+               }
+           }
+       } 
+       for (int i=0; i<3; i++){
+           for (int j=0; j<7; j++){ //on vérifie une colonne gagnante 
+               String jeton1 = cellule[i][j].lireCouleurDuJeton();
+               String jeton2 = cellule[i+1][j].lireCouleurDuJeton();
+               String jeton3 = cellule[i+2][j].lireCouleurDuJeton();
+               String jeton4 = cellule[i+3][j].lireCouleurDuJeton();
+               if (jeton1==couleur && jeton2==couleur && jeton3==couleur && jeton4==couleur){
+                   return true;
+               }
+           }
+       }
+       for (int i=0; i<3; i++){
+           for (int j=0; j<4; j++){ //on vérifie une diagonale gagnante
+               String jeton1 = cellule[i][j].lireCouleurDuJeton();
+               String jeton2 = cellule[i+1][j+1].lireCouleurDuJeton();
+               String jeton3 = cellule[i+2][j+2].lireCouleurDuJeton();
+               String jeton4 = cellule[i+3][j+3].lireCouleurDuJeton();
+               if (jeton1==couleur && jeton2==couleur && jeton3==couleur && jeton4==couleur){
+                   return true;
+               }
+           }
+       }
+       for (int i=3; i<6; i++){
+           for (int j=0; j<4; j++){ //on vérifie une diagonale gagnante
+               String jeton1 = cellule[i][j].lireCouleurDuJeton();
+               String jeton2 = cellule[i-1][j+1].lireCouleurDuJeton();
+               String jeton3 = cellule[i-2][j+2].lireCouleurDuJeton();
+               String jeton4 = cellule[i-3][j+3].lireCouleurDuJeton();
+               if (jeton1==couleur && jeton2==couleur && jeton3==couleur && jeton4==couleur){
+                   return true;
+               }
+           }
+       }
+       return false;
+   }
      boolean colonneRemplie(int colonne){
              if (cellule[5][colonne-1].lireCouleurDuJeton()!="vide"){
                  return true;

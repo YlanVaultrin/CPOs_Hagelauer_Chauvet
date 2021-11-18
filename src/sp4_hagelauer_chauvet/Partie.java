@@ -61,12 +61,16 @@ public class Partie {
            a= JoueurCourant.nombreJetonsRestant;
            jeton= JoueurCourant.ListeJetons[a-1];
            sc= new Scanner(System.in);
-           System.out.println("Joue "+JoueurCourant.Nom);
+           System.out.println("\nJoue "+JoueurCourant.Nom);
            colonne= sc.nextInt();
+           while (colonne>8 || colonne<1){
+               System.out.println("\nRejouez !");
+               colonne= sc.nextInt();
+               }
            if (grilleJeu.colonneRemplie(colonne)== true){
                colonne2=colonne;
                while(colonne2 == colonne){
-                   System.out.println("Rejouez !");
+                   System.out.println("\nRejouez !");
                    colonne2= sc.nextInt();
                }
                grilleJeu.ajouterJetonDansColonne(jeton,colonne2);
@@ -75,7 +79,7 @@ public class Partie {
            }
            grilleJeu.afficherGrilleSurConsole();
            if (grilleJeu.etreGagnantePourJoueur(JoueurCourant)==true){
-               System.out.println("le joueur "+JoueurCourant.Nom+" a gagné !");
+               System.out.println("\nle joueur "+JoueurCourant.Nom+" a gagné !");
                break;
            }
            if (JoueurCourant==ListeJoueurs[0]){
@@ -85,7 +89,7 @@ public class Partie {
            }
        }
        if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false){
-           System.out.println("égalité !");
+           System.out.println("\négalité !");
        }
    }//vérifie grille + demande colonne
 }

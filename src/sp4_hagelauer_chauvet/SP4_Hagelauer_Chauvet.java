@@ -30,5 +30,5 @@ public class SP4_Hagelauer_Chauvet {
                 partie.debuterPartie();
                 System.out.println();
     }
-    
+ 
 }
