@@ -75,7 +75,7 @@ public class Partie {
            }
            grilleJeu.afficherGrilleSurConsole();
            if (grilleJeu.etreGagnantePourJoueur(JoueurCourant)==true){
-               System.out.println("le joueur "+JoueurCourant+"a gagné !");
+               System.out.println("le joueur "+JoueurCourant.Nom+" a gagné !");
                break;
            }
            if (JoueurCourant==ListeJoueurs[0]){

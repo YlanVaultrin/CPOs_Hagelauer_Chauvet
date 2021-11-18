@@ -20,6 +20,7 @@ public class SP4_Hagelauer_Chauvet {
                 System.out.println("Joueur 1 comment vous appelez-vous ?");
                 Scanner sc= new Scanner(System.in);
                 String nom1= sc.nextLine();
+                System.out.println("Joueur 2 comment vous appelez-vous ?");
                 String nom2= sc.nextLine();
                 Joueur joueur1= new Joueur(nom1);
                 System.out.println("Le Joueur 1 est: "+nom1);
