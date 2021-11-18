@@ -28,7 +28,5 @@ public class SP4_Hagelauer_Chauvet {
                 System.out.println("Le Joueur 2 est: "+nom2);
                 Partie partie= new Partie(joueur1,joueur2);
                 partie.debuterPartie();
-                System.out.println();
     }
- 
 }

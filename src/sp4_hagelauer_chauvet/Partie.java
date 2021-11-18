@@ -90,6 +90,6 @@ public class Partie {
        }
        if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false){
            System.out.println("\négalité !");
-       }
+       }   
    }//vérifie grille + demande colonne
 }
