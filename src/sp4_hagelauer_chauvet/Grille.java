@@ -53,22 +53,28 @@ public class Grille {
      public static final String ANSI_YELLOW = "\u001B[33m";
      public static final String ANSI_RED = "\u001B[31m";
      public static final String ANSI_WHITE = "\u001B[37m";
+     public static final String ANSI_BLACK = "\u001B[30m";
      public static final String ANSI_RESET = "\u001B[0m"; //importation des couleurs
-     void afficherGrilleSurConsole(){
+     void afficherGrilleSurConsole(){ //attribution des couleurs aux éléments
          for (int i=5; i>=0;i--){
              System.out.print("\n");
             for (int j=0;j<7;j++){
                 String couleur= cellule[i][j].lireCouleurDuJeton();
-                if (couleur=="Rouge"){
-                    System.out.print(ANSI_RED + "\u2022"+ ANSI_RESET);
+                if (cellule[i][j].TrouNoir==true){
+                    System.out.print(ANSI_BLACK+"\u2022"+ANSI_RESET);
+                }else{
+                    if (couleur=="Rouge"){
+                        System.out.print(ANSI_RED + "\u2022"+ ANSI_RESET);
+                    }else{
+                        if (couleur=="Jaune"){
+                            System.out.print(ANSI_YELLOW+"\u2022"+ANSI_RESET);
+                        }else{
+                            if (couleur=="vide"){
+                                System.out.print(ANSI_WHITE+"\u2022"+ANSI_RESET);
+                            }
+                        }
+                    }
                 }
-                if (couleur=="Jaune"){
-                    System.out.print(ANSI_YELLOW+"\u2022"+ANSI_RESET);
-                }
-                if (couleur=="vide"){
-                    System.out.print(ANSI_WHITE+"\u2022"+ANSI_RESET);
-                }
-                //attribution des couleurs aux éléments
             }
          }
      }
@@ -126,4 +132,12 @@ public boolean etreGagnantePourJoueur(Joueur joueur){
              }
              return false;
      }
+     boolean placerTrouNoir(int ligne,int colonne){
+                 if (cellule[ligne][colonne].TrouNoir==true){
+                     return false; //ajoute un TrouNoir sur une cellule de la grille si la cellule posséde l'attribut Trou Noir en true
+                 }else{
+                     cellule[ligne][colonne].placerTrouNoir();
+                     return true;
+                 }
+             }
 }

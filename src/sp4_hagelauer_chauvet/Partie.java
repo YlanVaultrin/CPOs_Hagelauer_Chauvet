@@ -44,6 +44,20 @@ public class Partie {
        for (int i=0;i<21;i++){
            ListeJoueurs[1].ajouterJeton(jeton2);
        }
+       int colonneAleatoire = (int)(Math.random()*7);
+       int ligneAleatoire = (int)(Math.random()*6);
+       int g=0;
+       while(g<5){
+           if (grilleJeu.cellule[ligneAleatoire][colonneAleatoire].TrouNoir==false){
+               grilleJeu.placerTrouNoir(ligneAleatoire, colonneAleatoire);
+               ligneAleatoire=(int)(Math.random()*6);
+               colonneAleatoire=(int)(Math.random()*7);
+               g=g+1;
+           }else{
+               ligneAleatoire=(int)(Math.random()*6);
+               colonneAleatoire=(int)(Math.random()*7);
+           }
+       }
    }
    void debuterPartie(){
        this.initialiserPartie();//initialiser la partie et choisit le joueur qui commence

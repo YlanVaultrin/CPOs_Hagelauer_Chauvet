@@ -10,9 +10,10 @@ package sp4_hagelauer_chauvet;
  */
 public class Cellule {
     Jeton JetonCourant; //crée un objet de classe Jeton 
-    
+    boolean TrouNoir;
     Cellule(){
         JetonCourant = null; //réinitialise chaque cellule de la grille
+        TrouNoir = false;
     }
     
     boolean affecterJeton(Jeton jeton){
@@ -32,4 +33,20 @@ public class Cellule {
 //lit la couleur du jeton se trouvant sur une cellule
 //S'il n'y a aucun jeton renvoie vide
     }
+    boolean placerTrouNoir(){
+        if(TrouNoir==false){
+        TrouNoir= true; //place un trou noir
+        return true;
+    }else{
+        return false;
+    }
+    }
+    boolean presenceTrouNoir(){
+        if(TrouNoir==false){
+            return false;
+        }else{
+            return true;
+        }
+    }
+            
 }
