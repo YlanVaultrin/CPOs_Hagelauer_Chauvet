@@ -21,9 +21,13 @@ public class Grille {
     }
      boolean ajouterJetonDansColonne(Jeton J,int colonne){
          for (int i=0; i<6;i++){
-             if (cellule[i][colonne-1].JetonCourant==null){
+             boolean trouNoir= cellule[i][colonne-1].presenceTrouNoir();
+             if (cellule[i][colonne-1].JetonCourant==null && trouNoir== false){
                  cellule[i][colonne-1].JetonCourant= J;
                  return true; //ajoute un jeton que si l'emplacement est vide
+             }else if (cellule[i][colonne-1].JetonCourant==null && trouNoir== true){
+                 cellule[i][colonne-1].TrouNoir= false;
+                 return true;
              }
          }
          return false;  

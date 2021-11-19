@@ -48,5 +48,14 @@ public class Cellule {
             return true;
         }
     }
-            
+    boolean activerTrouNoir(){
+        if(presenceTrouNoir()==true){
+            if (JetonCourant!=null){
+                JetonCourant=null;
+                TrouNoir=false;
+                return true;
+            }
+        }
+        return false;
+        }           
 }
