@@ -30,7 +30,7 @@ public class Partie {
            ListeJoueurs[0].Couleur = "Jaune";
        }
    }
-   void initialiserPartie(){
+   void initialiserPartie(){//on créé une grille et on associe les jetons aux joueurs
        attribuerCouleursAuxJoueurs();
        grilleJeu= new Grille();
        grilleJeu.vidergrille();
@@ -46,7 +46,7 @@ public class Partie {
        }
    }
    void debuterPartie(){
-       this.initialiserPartie();
+       this.initialiserPartie();//initialiser la partie et choisit le joueur qui commence
        if ("Rouge".equals(ListeJoueurs[0].Couleur)){
            JoueurCourant= ListeJoueurs[0];
        }else{
@@ -57,17 +57,17 @@ public class Partie {
        int colonne;
        int colonne2;
        Scanner sc;
-       while (grilleJeu.etreremplie()==false){
+       while (grilleJeu.etreremplie()==false){//tant que la grille n'est pas pleine, la partie continue
            a= JoueurCourant.nombreJetonsRestant;
            jeton= JoueurCourant.ListeJetons[a-1];
            sc= new Scanner(System.in);
            System.out.println("\nJoue "+JoueurCourant.Nom);
            colonne= sc.nextInt();
-           while (colonne>8 || colonne<1){
+           while (colonne>8 || colonne<1){//empêche les joueurs de taper de mauvais chiffre
                System.out.println("\nRejouez !");
                colonne= sc.nextInt();
                }
-           if (grilleJeu.colonneRemplie(colonne)== true){
+           if (grilleJeu.colonneRemplie(colonne)== true){//Si la colonne est pleine, le joueur rejoue
                colonne2=colonne;
                while(colonne2 == colonne){
                    System.out.println("\nRejouez !");
@@ -78,18 +78,18 @@ public class Partie {
                grilleJeu.ajouterJetonDansColonne(jeton,colonne);
            }
            grilleJeu.afficherGrilleSurConsole();
-           if (grilleJeu.etreGagnantePourJoueur(JoueurCourant)==true){
+           if (grilleJeu.etreGagnantePourJoueur(JoueurCourant)==true){//si la grille est gagnante, la partie s'arrête
                System.out.println("\nle joueur "+JoueurCourant.Nom+" a gagné !");
                break;
            }
-           if (JoueurCourant==ListeJoueurs[0]){
+           if (JoueurCourant==ListeJoueurs[0]){//le joueur courant change
            JoueurCourant= ListeJoueurs[1];
            }else{
                JoueurCourant= ListeJoueurs[0];
            }
        }
-       if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false){
+       if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false){//si la grille est pleine et que personne n'a gagner, il y a égalité
            System.out.println("\négalité !");
        }   
-   }//vérifie grille + demande colonne
+   }
 }

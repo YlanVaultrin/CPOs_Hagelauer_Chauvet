@@ -14,7 +14,7 @@ public class SP4_Hagelauer_Chauvet {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {//créé les joueurs, la partie et la lance
 
         System.out.println("Veuillez démarrer la partie!");
                 System.out.println("Joueur 1 comment vous appelez-vous ?");

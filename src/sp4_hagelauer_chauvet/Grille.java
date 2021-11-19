@@ -120,7 +120,7 @@ public boolean etreGagnantePourJoueur(Joueur joueur){
        }
        return false;
    }
-     boolean colonneRemplie(int colonne){
+     boolean colonneRemplie(int colonne){//vérifie si la colonne est remplie
              if (cellule[5][colonne-1].lireCouleurDuJeton()!="vide"){
                  return true;
              }
