@@ -71,6 +71,7 @@ public class Partie {
        int colonne;
        int colonne2;
        Scanner sc;
+       int tourdejeu=42;
        while (grilleJeu.etreremplie()==false){//tant que la grille n'est pas pleine, la partie continue
            a= JoueurCourant.nombreJetonsRestant;
            jeton= JoueurCourant.ListeJetons[a-1];
@@ -96,13 +97,18 @@ public class Partie {
                System.out.println("\nle joueur "+JoueurCourant.Nom+" a gagné !");
                break;
            }
+           tourdejeu= tourdejeu-1;
+           if (tourdejeu==0){ //système de tour de jeu qui ne fonctionne que pour les versions trou noir et antérieur
+               System.out.println("\négalité !");
+               break;
+           }
            if (JoueurCourant==ListeJoueurs[0]){//le joueur courant change
            JoueurCourant= ListeJoueurs[1];
            }else{
                JoueurCourant= ListeJoueurs[0];
            }
        }
-       if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false){//si la grille est pleine et que personne n'a gagner, il y a égalité
+       if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false || tourdejeu==0){//si la grille est pleine ou que tout les jetons ont été utilisés et que personne n'a gagner, il y a égalité
            System.out.println("\négalité !");
        }   
    }
