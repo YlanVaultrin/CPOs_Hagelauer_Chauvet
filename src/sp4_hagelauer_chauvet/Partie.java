@@ -71,8 +71,11 @@ public class Partie {
        int colonne;
        int colonne2;
        Scanner sc;
-       int tourdejeu=42;
+       int tourdejeu=42;//variable tour de jeu
+       int tdj=0;//variable utilisé pour donner le nombre de jeton restant par joueur
+       int j=0;//variable pour éviter la répétition d'égalité
        while (grilleJeu.etreremplie()==false){//tant que la grille n'est pas pleine, la partie continue
+           grilleJeu.afficherGrilleSurConsole();
            a= JoueurCourant.nombreJetonsRestant;
            jeton= JoueurCourant.ListeJetons[a-1];
            sc= new Scanner(System.in);
@@ -92,14 +95,21 @@ public class Partie {
            }else{
                grilleJeu.ajouterJetonDansColonne(jeton,colonne);
            }
-           grilleJeu.afficherGrilleSurConsole();
            if (grilleJeu.etreGagnantePourJoueur(JoueurCourant)==true){//si la grille est gagnante, la partie s'arrête
+               grilleJeu.afficherGrilleSurConsole();
                System.out.println("\nle joueur "+JoueurCourant.Nom+" a gagné !");
                break;
            }
            tourdejeu= tourdejeu-1;
+           if ((tourdejeu)%2==0){
+               tdj=(tourdejeu)/2;
+           }else{
+               tdj=(tourdejeu-1)/2;
+           }
+           System.out.println(JoueurCourant.Nom+" il te reste "+tdj+" jetons !");
            if (tourdejeu==0){ //système de tour de jeu qui ne fonctionne que pour les versions trou noir et antérieur
                System.out.println("\négalité !");
+               j= 2;
                break;
            }
            if (JoueurCourant==ListeJoueurs[0]){//le joueur courant change
@@ -108,7 +118,7 @@ public class Partie {
                JoueurCourant= ListeJoueurs[0];
            }
        }
-       if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false || tourdejeu==0){//si la grille est pleine ou que tout les jetons ont été utilisés et que personne n'a gagner, il y a égalité
+       if(grilleJeu.etreGagnantePourJoueur(JoueurCourant)==false && j!=2){//si la grille est pleine ou que tout les jetons ont été utilisés et que personne n'a gagner, il y a égalité
            System.out.println("\négalité !");
        }   
    }
