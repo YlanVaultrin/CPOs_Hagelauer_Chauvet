@@ -9,12 +9,21 @@ package sp4_hagelauer_chauvet;
  * @author ylanc
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
-
-    /**
-     * Creates new form fenetreDeJeu
-     */
+    
+   Joueur ListeJoueurs[]= new Joueur[2];
+   Joueur JoueurCourant;
+   Grille grilleJeu= new Grille();
     public fenetreDeJeu() {
         initComponents();
+        Panneau_infoJoueur.setVisible(false);
+        Panneau_infoPartie.setVisible(false);
+        for (int i=5; i>=0; i--){
+            for (int j=0; j<7; j++){
+                CelluleGraphique cellGraph= new CelluleGraphique(grilleJeu.cellule[i][j]);
+                Panneau_grille.add(cellGraph);
+            }
+            
+        }
     }
 
     /**
@@ -50,8 +59,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_infoPartie = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
+        joueurCourant = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
+        Message = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         Panneau_grille = new javax.swing.JPanel();
         col2 = new javax.swing.JButton();
         col3 = new javax.swing.JButton();
@@ -129,6 +140,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_creationPartie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         start.setText("Démarrer Partie !");
+        start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startActionPerformed(evt);
+            }
+        });
         Panneau_creationPartie.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         getContentPane().add(Panneau_creationPartie, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 50, 250, 120));
@@ -141,14 +157,20 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_infoPartie.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 80, -1));
         Panneau_infoPartie.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        jTextField1.setText("JoueurCourant");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        joueurCourant.setText("JoueurCourant");
+        joueurCourant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                joueurCourantActionPerformed(evt);
             }
         });
-        Panneau_infoPartie.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, -1));
+        Panneau_infoPartie.add(joueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, -1));
         Panneau_infoPartie.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 192, 250, 10));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        Message.setViewportView(jTextArea1);
+
+        Panneau_infoPartie.add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         getContentPane().add(Panneau_infoPartie, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 170, 250, 210));
 
@@ -207,9 +229,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_col5ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void joueurCourantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joueurCourantActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_joueurCourantActionPerformed
+
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+        Panneau_infoJoueur.setVisible(true);
+        Panneau_infoPartie.setVisible(true);
+    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +276,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JetonsRestantsJ1;
     private javax.swing.JTextField JetonsRestantsJ2;
+    private javax.swing.JScrollPane Message;
     private javax.swing.JPanel Panneau_creationPartie;
     private javax.swing.JPanel Panneau_grille;
     private javax.swing.JPanel Panneau_infoJoueur;
@@ -275,7 +303,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField joueurCourant;
     private javax.swing.JTextField nom_j1;
     private javax.swing.JTextField nom_j2;
     private javax.swing.JTextField nom_joueur1;
