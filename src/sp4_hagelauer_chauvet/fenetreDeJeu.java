@@ -56,6 +56,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         nom_joueur2 = new javax.swing.JTextField();
         nom_joueur1 = new javax.swing.JTextField();
         start = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         Panneau_infoPartie = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -63,6 +66,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         Message = new javax.swing.JScrollPane();
         message = new javax.swing.JTextArea();
+        jSeparator3 = new javax.swing.JSeparator();
         Panneau_grille = new javax.swing.JPanel();
         col1 = new javax.swing.JButton();
         col2 = new javax.swing.JButton();
@@ -78,49 +82,55 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_infoJoueur.setBackground(new java.awt.Color(204, 0, 204));
         Panneau_infoJoueur.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Rockwell Nova", 1, 12)); // NOI18N
         jLabel3.setText("Infos Joueur:");
         Panneau_infoJoueur.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 6, 88, 26));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Joueur 1:");
-        Panneau_infoJoueur.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 46, 65, -1));
+        Panneau_infoJoueur.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 65, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Couleur:");
-        Panneau_infoJoueur.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 72, 65, -1));
+        Panneau_infoJoueur.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 65, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Jetons Restants:");
-        Panneau_infoJoueur.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 98, 98, -1));
+        Panneau_infoJoueur.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 98, 110, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         Panneau_infoJoueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 133, 250, 10));
-        Panneau_infoJoueur.add(JetonsRestantsJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 95, 60, -1));
-        Panneau_infoJoueur.add(couleur_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 69, 60, -1));
+        Panneau_infoJoueur.add(JetonsRestantsJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 60, -1));
+        Panneau_infoJoueur.add(couleur_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 60, -1));
 
         nom_j1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom_j1ActionPerformed(evt);
             }
         });
-        Panneau_infoJoueur.add(nom_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 43, 60, -1));
+        Panneau_infoJoueur.add(nom_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 60, -1));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Jetons Restants:");
-        Panneau_infoJoueur.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 204, 98, -1));
+        Panneau_infoJoueur.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 110, -1));
 
         JetonsRestantsJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JetonsRestantsJ2ActionPerformed(evt);
             }
         });
-        Panneau_infoJoueur.add(JetonsRestantsJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 201, 60, -1));
-        Panneau_infoJoueur.add(couleur_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 175, 60, -1));
+        Panneau_infoJoueur.add(JetonsRestantsJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 60, -1));
+        Panneau_infoJoueur.add(couleur_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 60, -1));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Joueur 2:");
-        Panneau_infoJoueur.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 152, 65, -1));
-        Panneau_infoJoueur.add(nom_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 149, 60, -1));
+        Panneau_infoJoueur.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 65, -1));
+        Panneau_infoJoueur.add(nom_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 60, 20));
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Couleur:");
-        Panneau_infoJoueur.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 65, -1));
+        Panneau_infoJoueur.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 65, -1));
 
         getContentPane().add(Panneau_infoJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 376, 250, 250));
 
@@ -128,33 +138,46 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_creationPartie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nom Joueur 2:");
-        Panneau_creationPartie.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        Panneau_creationPartie.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
         jLabel2.setText("Nom Joueur 1:");
-        Panneau_creationPartie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
-        Panneau_creationPartie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 70, -1));
+        Panneau_creationPartie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+        Panneau_creationPartie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 70, -1));
 
         nom_joueur1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom_joueur1ActionPerformed(evt);
             }
         });
-        Panneau_creationPartie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 70, -1));
+        Panneau_creationPartie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, -1));
 
+        start.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         start.setText("Démarrer Partie !");
         start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startActionPerformed(evt);
             }
         });
-        Panneau_creationPartie.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        Panneau_creationPartie.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 150, 20));
 
-        getContentPane().add(Panneau_creationPartie, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 50, 250, 120));
+        jLabel7.setFont(new java.awt.Font("Webdings", 0, 10)); // NOI18N
+        jLabel7.setText("cbfddddddddddddddddddedddwsd");
+        Panneau_creationPartie.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 150, -1));
+
+        jLabel13.setFont(new java.awt.Font("Webdings", 0, 10)); // NOI18N
+        jLabel13.setText("cbfbffdzddddgfgfgfgddddddddd");
+        Panneau_creationPartie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, -1));
+
+        jLabel8.setFont(new java.awt.Font("Rockwell Nova", 0, 14)); // NOI18N
+        jLabel8.setText("SuperPuissance  4");
+        Panneau_creationPartie.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        getContentPane().add(Panneau_creationPartie, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 50, 250, 150));
 
         Panneau_infoPartie.setBackground(new java.awt.Color(204, 0, 204));
         Panneau_infoPartie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Rockwell Nova", 1, 12)); // NOI18N
         jLabel6.setText("Infos Partie:");
         Panneau_infoPartie.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 80, -1));
         Panneau_infoPartie.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
@@ -172,8 +195,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Message.setViewportView(message);
 
         Panneau_infoPartie.add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panneau_infoPartie.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
-        getContentPane().add(Panneau_infoPartie, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 170, 250, 210));
+        getContentPane().add(Panneau_infoPartie, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 200, 250, 180));
 
         Panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
         Panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
@@ -273,7 +297,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_infoJoueur.setVisible(true);
         Panneau_infoPartie.setVisible(true);
         initialiserPartie();
-        joueurCourant.setText(JoueurCourant.Nom);
+        joueurCourant.setText(JoueurCourant.Nom+" a toi de Jouer !!!");
         JetonsRestantsJ1.setText("21");
         JetonsRestantsJ2.setText("21");
         Panneau_grille.repaint();
@@ -406,7 +430,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         }else{
             JoueurCourant= ListeJoueurs[0];
         }
-        joueurCourant.setText(JoueurCourant.Nom);
+        joueurCourant.setText(JoueurCourant.Nom+" a toi de Jouer !!!");
     }
     private void col7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col7ActionPerformed
         // TODO add your handling code here:
@@ -481,9 +505,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
        nom_j2.setText(Joueur2);
        couleur_j1.setText(ListeJoueurs[0].Couleur);
        couleur_j2.setText(ListeJoueurs[1].Couleur);
-       
-       grilleJeu= new Grille();
-       grilleJeu.vidergrille();
+      
        
        if ("Rouge".equals(ListeJoueurs[0].Couleur)){
            JoueurCourant= ListeJoueurs[0];
@@ -538,14 +560,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField joueurCourant;
     private javax.swing.JTextArea message;
