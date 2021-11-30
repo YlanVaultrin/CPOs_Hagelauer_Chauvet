@@ -48,7 +48,7 @@ public class Partie {
        int ligneAleatoire = (int)(Math.random()*6);
        int g=0;
        while(g<5){
-           if (grilleJeu.cellule[ligneAleatoire][colonneAleatoire].TrouNoir==false){
+           if (grilleJeu.cellule[ligneAleatoire][colonneAleatoire].presenceTrouNoir()==false){
                grilleJeu.placerTrouNoir(ligneAleatoire, colonneAleatoire);
                ligneAleatoire=(int)(Math.random()*6);
                colonneAleatoire=(int)(Math.random()*7);
@@ -58,14 +58,14 @@ public class Partie {
                colonneAleatoire=(int)(Math.random()*7);
            }
        }
-   }
-   void debuterPartie(){
-       this.initialiserPartie();//initialiser la partie et choisit le joueur qui commence
        if ("Rouge".equals(ListeJoueurs[0].Couleur)){
            JoueurCourant= ListeJoueurs[0];
        }else{
            JoueurCourant= ListeJoueurs[1];
        }
+   }
+   void debuterPartie(){
+       this.initialiserPartie();//initialiser la partie et choisit le joueur qui commence
        int a;
        Jeton jeton;
        int colonne;

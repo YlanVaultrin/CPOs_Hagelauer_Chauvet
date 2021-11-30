@@ -34,19 +34,15 @@ public class Cellule {
 //S'il n'y a aucun jeton renvoie vide
     }
     boolean placerTrouNoir(){
-        if(TrouNoir==false){
-        TrouNoir= true; //place un trou noir
-        return true;
-    }else{
-        return false;
-    }
+            if(TrouNoir==false){
+                TrouNoir= true;
+                return true;
+            }else{
+                return false;
+        }
     }
     boolean presenceTrouNoir(){
-        if(TrouNoir==false){
-            return false;
-        }else{
-            return true;
-        }
+        return TrouNoir;
     }
     boolean activerTrouNoir(){
         if(presenceTrouNoir()==true){

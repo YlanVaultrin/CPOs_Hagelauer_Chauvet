@@ -53,8 +53,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_creationPartie = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        nom_joueur1 = new javax.swing.JTextField();
         nom_joueur2 = new javax.swing.JTextField();
+        nom_joueur1 = new javax.swing.JTextField();
         start = new javax.swing.JButton();
         Panneau_infoPartie = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -62,15 +62,15 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         joueurCourant = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         Message = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        message = new javax.swing.JTextArea();
         Panneau_grille = new javax.swing.JPanel();
+        col1 = new javax.swing.JButton();
         col2 = new javax.swing.JButton();
         col3 = new javax.swing.JButton();
         col4 = new javax.swing.JButton();
         col5 = new javax.swing.JButton();
         col6 = new javax.swing.JButton();
         col7 = new javax.swing.JButton();
-        col1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,30 +94,30 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         Panneau_infoJoueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 133, 250, 10));
-
-        JetonsRestantsJ1.setText("jTextField1");
         Panneau_infoJoueur.add(JetonsRestantsJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 95, 60, -1));
-
-        couleur_j1.setText("jTextField1");
         Panneau_infoJoueur.add(couleur_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 69, 60, -1));
 
-        nom_j1.setText("jTextField1");
+        nom_j1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nom_j1ActionPerformed(evt);
+            }
+        });
         Panneau_infoJoueur.add(nom_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 43, 60, -1));
 
         jLabel10.setText("Jetons Restants:");
         Panneau_infoJoueur.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 204, 98, -1));
 
-        JetonsRestantsJ2.setText("jTextField1");
+        JetonsRestantsJ2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JetonsRestantsJ2ActionPerformed(evt);
+            }
+        });
         Panneau_infoJoueur.add(JetonsRestantsJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 201, 60, -1));
-
-        couleur_j2.setText("jTextField1");
         Panneau_infoJoueur.add(couleur_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 175, 60, -1));
 
         jLabel11.setText("Joueur 2:");
         Panneau_infoJoueur.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 152, 65, -1));
-
-        nom_j2.setText("jTextField1");
-        Panneau_infoJoueur.add(nom_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 149, -1, -1));
+        Panneau_infoJoueur.add(nom_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 149, 60, -1));
 
         jLabel12.setText("Couleur:");
         Panneau_infoJoueur.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 65, -1));
@@ -132,12 +132,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jLabel2.setText("Nom Joueur 1:");
         Panneau_creationPartie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        Panneau_creationPartie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 70, -1));
 
-        nom_joueur1.setText("jTextField1");
-        Panneau_creationPartie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
-
-        nom_joueur2.setText("jTextField1");
-        Panneau_creationPartie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        nom_joueur1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nom_joueur1ActionPerformed(evt);
+            }
+        });
+        Panneau_creationPartie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 70, -1));
 
         start.setText("Démarrer Partie !");
         start.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +159,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_infoPartie.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 80, -1));
         Panneau_infoPartie.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        joueurCourant.setText("JoueurCourant");
         joueurCourant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 joueurCourantActionPerformed(evt);
@@ -166,9 +167,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_infoPartie.add(joueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, -1));
         Panneau_infoPartie.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 192, 250, 10));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        Message.setViewportView(jTextArea1);
+        message.setColumns(20);
+        message.setRows(5);
+        Message.setViewportView(message);
 
         Panneau_infoPartie.add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
@@ -178,10 +179,28 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
         getContentPane().add(Panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 672, 576));
 
+        col1.setText("1");
+        col1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(col1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
         col2.setText("2");
+        col2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(col2, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 20, -1, -1));
 
         col3.setText("3");
+        col3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(col3, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 20, -1, -1));
 
         col4.setText("4");
@@ -201,32 +220,49 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         getContentPane().add(col5, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 20, -1, -1));
 
         col6.setText("6");
+        col6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                col6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(col6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
         col7.setText("7");
-        getContentPane().add(col7, new org.netbeans.lib.awtextra.AbsoluteConstraints(616, 20, -1, -1));
-
-        col1.setText("1");
-        col1.addActionListener(new java.awt.event.ActionListener() {
+        col7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                col1ActionPerformed(evt);
+                col7ActionPerformed(evt);
             }
         });
-        getContentPane().add(col1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        getContentPane().add(col7, new org.netbeans.lib.awtextra.AbsoluteConstraints(616, 20, -1, -1));
 
         setBounds(0, 0, 1044, 687);
     }// </editor-fold>//GEN-END:initComponents
 
     private void col1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col1ActionPerformed
         // TODO add your handling code here:
+        jouerdansColonne(0);
+        if (grilleJeu.colonneRemplie(0)==true){
+            col1.setEnabled(false);
+        }
+        joueurSuivant();
     }//GEN-LAST:event_col1ActionPerformed
 
     private void col4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col4ActionPerformed
         // TODO add your handling code here:
+        jouerdansColonne(3);
+        if (grilleJeu.colonneRemplie(3)==true){
+            col4.setEnabled(false);
+        }
+        joueurSuivant();
     }//GEN-LAST:event_col4ActionPerformed
 
     private void col5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col5ActionPerformed
         // TODO add your handling code here:
+        jouerdansColonne(4);
+        if (grilleJeu.colonneRemplie(4)==true){
+            col5.setEnabled(false);
+        }
+        joueurSuivant();
     }//GEN-LAST:event_col5ActionPerformed
 
     private void joueurCourantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joueurCourantActionPerformed
@@ -236,7 +272,149 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         Panneau_infoJoueur.setVisible(true);
         Panneau_infoPartie.setVisible(true);
+        initialiserPartie();
+        joueurCourant.setText(JoueurCourant.Nom);
+        JetonsRestantsJ1.setText("21");
+        JetonsRestantsJ2.setText("21");
+        Panneau_grille.repaint();
+        start.setEnabled(false);
     }//GEN-LAST:event_startActionPerformed
+
+    private void nom_joueur1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueur1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nom_joueur1ActionPerformed
+
+    private void nom_j1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_j1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nom_j1ActionPerformed
+
+    private void JetonsRestantsJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JetonsRestantsJ2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JetonsRestantsJ2ActionPerformed
+
+    private void col2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col2ActionPerformed
+        // TODO add your handling code here:
+        jouerdansColonne(1);
+        if (grilleJeu.colonneRemplie(1)==true){
+            col2.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_col2ActionPerformed
+
+    private void col3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col3ActionPerformed
+        // TODO add your handling code here:
+        jouerdansColonne(2);
+        if (grilleJeu.colonneRemplie(2)==true){
+            col3.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_col3ActionPerformed
+
+    private void col6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col6ActionPerformed
+        // TODO add your handling code here:
+        jouerdansColonne(5);
+        if (grilleJeu.colonneRemplie(5)==true){
+            col6.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_col6ActionPerformed
+
+    public boolean jouerdansColonne(int indice_colonne){
+       boolean resultatAction;
+       Jeton jeton;
+       int a;
+       int tourdejeu=42;//variable tour de jeu
+       int tdj=1;//variable utilisé pour donner le nombre de jeton restant par joueur
+       int j=0;//variable pour éviter la répétition d'égalité
+       a= JoueurCourant.nombreJetonsRestant;
+       jeton= JoueurCourant.ListeJetons[a-1];
+       resultatAction=grilleJeu.ajouterJetonDansColonne(jeton,indice_colonne);
+       
+       boolean victj1= grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
+       boolean victj2= grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
+       
+       if (victj1==true){
+           col1.setEnabled(false);
+           col2.setEnabled(false);
+           col3.setEnabled(false);
+           col4.setEnabled(false);
+           col5.setEnabled(false);
+           col6.setEnabled(false);
+           col7.setEnabled(false);
+           message.setText("Victoire de "+ListeJoueurs[0].Nom+" !!!");
+       }
+       if (victj2==true){
+           col1.setEnabled(false);
+           col2.setEnabled(false);
+           col3.setEnabled(false);
+           col4.setEnabled(false);
+           col5.setEnabled(false);
+           col6.setEnabled(false);
+           col7.setEnabled(false);
+           message.setText("Victoire de "+ListeJoueurs[1].Nom+" !!!");
+       }
+       if (tdj==0){
+           col1.setEnabled(false);
+           col2.setEnabled(false);
+           col3.setEnabled(false);
+           col4.setEnabled(false);
+           col5.setEnabled(false);
+           col6.setEnabled(false);
+           col7.setEnabled(false);
+           message.setText("égalité !!!");
+       }
+       if (grilleJeu.etreremplie()==true){
+           col1.setEnabled(false);
+           col2.setEnabled(false);
+           col3.setEnabled(false);
+           col4.setEnabled(false);
+           col5.setEnabled(false);
+           col6.setEnabled(false);
+           col7.setEnabled(false);
+           message.setText("égalité !!!");
+       }
+       if (resultatAction==true){
+           Panneau_grille.repaint();
+           tourdejeu= tourdejeu-1;
+           if ((tourdejeu)%2==0){
+               tdj=(tourdejeu)/2;
+               if (JoueurCourant==ListeJoueurs[0]){
+                   String k= String.valueOf(tdj);
+                   JetonsRestantsJ1.setText(k);
+               }else{
+                   String k= String.valueOf(tdj);
+                   JetonsRestantsJ2.setText(k);
+               }
+           }else{
+               tdj=(tourdejeu-1)/2;
+               if (JoueurCourant==ListeJoueurs[0]){
+                   String k= String.valueOf(tdj);
+                   JetonsRestantsJ1.setText(k);
+               }else{
+                   String k= String.valueOf(tdj);
+                   JetonsRestantsJ2.setText(k);
+               }
+           }
+          return true; 
+       }
+        return false;
+    }
+    public void joueurSuivant(){
+        if (JoueurCourant== ListeJoueurs[0]){
+            JoueurCourant= ListeJoueurs[1];
+        }else{
+            JoueurCourant= ListeJoueurs[0];
+        }
+        joueurCourant.setText(JoueurCourant.Nom);
+    }
+    private void col7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col7ActionPerformed
+        // TODO add your handling code here:
+        jouerdansColonne(6);
+        if (grilleJeu.colonneRemplie(6)==true){
+            col7.setEnabled(false);
+        }
+        joueurSuivant();
+    }//GEN-LAST:event_col7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,6 +450,71 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         });
     }
+    
+    void attribuerCouleursAuxJoueurs(){ //Associe une couleur aux 2 joueurs stocké dans Couleurs
+       double a= Math.random();//création d'une variable aléatoire entre 0 et 1
+       
+       if (a<0.5){
+           ListeJoueurs[0].Couleur = "Rouge";
+           ListeJoueurs[1].Couleur = "Jaune";
+       }
+       if (a>0.5){
+           ListeJoueurs[1].Couleur = "Rouge";
+           ListeJoueurs[0].Couleur = "Jaune";
+       }
+   }
+    
+     void initialiserPartie(){//on créé une grille et on associe les jetons aux joueurs
+         
+       String Joueur1= nom_joueur1.getText();
+       Joueur J1 = new Joueur(Joueur1);
+       String Joueur2= nom_joueur2.getText();
+       Joueur J2 = new Joueur(Joueur2);
+       
+       ListeJoueurs[0]= J1;
+       ListeJoueurs[1]= J2;
+       
+       attribuerCouleursAuxJoueurs();
+       
+       nom_j1.setText(Joueur1);
+       nom_j2.setText(Joueur2);
+       couleur_j1.setText(ListeJoueurs[0].Couleur);
+       couleur_j2.setText(ListeJoueurs[1].Couleur);
+       
+       grilleJeu= new Grille();
+       grilleJeu.vidergrille();
+       
+       if ("Rouge".equals(ListeJoueurs[0].Couleur)){
+           JoueurCourant= ListeJoueurs[0];
+       }else{
+           JoueurCourant= ListeJoueurs[1];
+       }
+       
+       String couleur= ListeJoueurs[0].Couleur;
+       Jeton jeton= new Jeton(couleur);
+       for (int i=0;i<21;i++){
+           ListeJoueurs[0].ajouterJeton(jeton);
+       }
+       String couleur2= ListeJoueurs[1].Couleur;
+       Jeton jeton2= new Jeton(couleur2);
+       for (int i=0;i<21;i++){
+           ListeJoueurs[1].ajouterJeton(jeton2);
+       }
+       int colonneAleatoire = (int)(Math.random()*7);
+       int ligneAleatoire = (int)(Math.random()*6);
+       int g=0;
+       while(g<5){
+           if (grilleJeu.cellule[ligneAleatoire][colonneAleatoire].presenceTrouNoir()==false){
+               grilleJeu.placerTrouNoir(ligneAleatoire, colonneAleatoire);
+               ligneAleatoire=(int)(Math.random()*6);
+               colonneAleatoire=(int)(Math.random()*7);
+               g=g+1;
+           }else{
+               ligneAleatoire=(int)(Math.random()*6);
+               colonneAleatoire=(int)(Math.random()*7);
+           }
+       }
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JetonsRestantsJ1;
@@ -303,8 +546,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField joueurCourant;
+    private javax.swing.JTextArea message;
     private javax.swing.JTextField nom_j1;
     private javax.swing.JTextField nom_j2;
     private javax.swing.JTextField nom_joueur1;
