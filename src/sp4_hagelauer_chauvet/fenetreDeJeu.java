@@ -240,8 +240,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void col1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col1ActionPerformed
         // TODO add your handling code here:
-        jouerdansColonne(0);
-        if (grilleJeu.colonneRemplie(0)==true){
+        jouerdansColonne(1);
+        if (grilleJeu.colonneRemplie(1)==true){
             col1.setEnabled(false);
         }
         joueurSuivant();
@@ -249,8 +249,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void col4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col4ActionPerformed
         // TODO add your handling code here:
-        jouerdansColonne(3);
-        if (grilleJeu.colonneRemplie(3)==true){
+        jouerdansColonne(4);
+        if (grilleJeu.colonneRemplie(4)==true){
             col4.setEnabled(false);
         }
         joueurSuivant();
@@ -258,8 +258,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void col5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col5ActionPerformed
         // TODO add your handling code here:
-        jouerdansColonne(4);
-        if (grilleJeu.colonneRemplie(4)==true){
+        jouerdansColonne(5);
+        if (grilleJeu.colonneRemplie(5)==true){
             col5.setEnabled(false);
         }
         joueurSuivant();
@@ -294,8 +294,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void col2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col2ActionPerformed
         // TODO add your handling code here:
-        jouerdansColonne(1);
-        if (grilleJeu.colonneRemplie(1)==true){
+        jouerdansColonne(2);
+        if (grilleJeu.colonneRemplie(2)==true){
             col2.setEnabled(false);
         }
         joueurSuivant();
@@ -303,8 +303,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void col3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col3ActionPerformed
         // TODO add your handling code here:
-        jouerdansColonne(2);
-        if (grilleJeu.colonneRemplie(2)==true){
+        jouerdansColonne(3);
+        if (grilleJeu.colonneRemplie(3)==true){
             col3.setEnabled(false);
         }
         joueurSuivant();
@@ -312,24 +312,23 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void col6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col6ActionPerformed
         // TODO add your handling code here:
-        jouerdansColonne(5);
-        if (grilleJeu.colonneRemplie(5)==true){
+        jouerdansColonne(6);
+        if (grilleJeu.colonneRemplie(6)==true){
             col6.setEnabled(false);
         }
         joueurSuivant();
     }//GEN-LAST:event_col6ActionPerformed
 
+    int tdj=1;//variable utilisé pour donner le nombre de jeton restant par joueur
+    int tourdejeu=42;//variable tour de jeu
     public boolean jouerdansColonne(int indice_colonne){
        boolean resultatAction;
        Jeton jeton;
        int a;
-       int tourdejeu=42;//variable tour de jeu
-       int tdj=1;//variable utilisé pour donner le nombre de jeton restant par joueur
        int j=0;//variable pour éviter la répétition d'égalité
        a= JoueurCourant.nombreJetonsRestant;
        jeton= JoueurCourant.ListeJetons[a-1];
        resultatAction=grilleJeu.ajouterJetonDansColonne(jeton,indice_colonne);
-       
        boolean victj1= grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
        boolean victj2= grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
        
@@ -353,16 +352,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
            col7.setEnabled(false);
            message.setText("Victoire de "+ListeJoueurs[1].Nom+" !!!");
        }
-       if (tdj==0){
-           col1.setEnabled(false);
-           col2.setEnabled(false);
-           col3.setEnabled(false);
-           col4.setEnabled(false);
-           col5.setEnabled(false);
-           col6.setEnabled(false);
-           col7.setEnabled(false);
-           message.setText("égalité !!!");
-       }
        if (grilleJeu.etreremplie()==true){
            col1.setEnabled(false);
            col2.setEnabled(false);
@@ -372,8 +361,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
            col6.setEnabled(false);
            col7.setEnabled(false);
            message.setText("égalité !!!");
+           return true;
        }
        if (resultatAction==true){
+           
            Panneau_grille.repaint();
            tourdejeu= tourdejeu-1;
            if ((tourdejeu)%2==0){
@@ -395,6 +386,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                    JetonsRestantsJ2.setText(k);
                }
            }
+           if (tdj==0){
+           col1.setEnabled(false);
+           col2.setEnabled(false);
+           col3.setEnabled(false);
+           col4.setEnabled(false);
+           col5.setEnabled(false);
+           col6.setEnabled(false);
+           col7.setEnabled(false);
+           message.setText("égalité !!!");   
+           }
           return true; 
        }
         return false;
@@ -409,8 +410,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
     private void col7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col7ActionPerformed
         // TODO add your handling code here:
-        jouerdansColonne(6);
-        if (grilleJeu.colonneRemplie(6)==true){
+        jouerdansColonne(7);
+        if (grilleJeu.colonneRemplie(7)==true){
             col7.setEnabled(false);
         }
         joueurSuivant();

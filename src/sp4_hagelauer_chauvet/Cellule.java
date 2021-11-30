@@ -28,7 +28,7 @@ public class Cellule {
         if (JetonCourant==null){
             return "vide";
         }else{
-            return JetonCourant.Couleur;
+            return JetonCourant.lireCouleur();
         }
 //lit la couleur du jeton se trouvant sur une cellule
 //S'il n'y a aucun jeton renvoie vide
